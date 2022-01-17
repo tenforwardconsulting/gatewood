@@ -1,11 +1,10 @@
 class CommandParser
-
   def self.parse(input)
     return Command.new(input)
   end
 
   class Command
-    attr_reader :text, :due_date
+    attr_reader :text, :due_date, :due
     def initialize(input)
       @input = input
       parse_due_date
@@ -25,6 +24,8 @@ class CommandParser
         @text = $1
         @due = $2
       end
+
+      return if @due.nil?
 
       daynames = Date::DAYNAMES.map &:downcase
       if daynames.include?(@due.downcase)

@@ -1,5 +1,5 @@
 
-const { App } = require('@slack/bolt')
+const { App, directMention } = require('@slack/bolt');
 require('dotenv').config()
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
@@ -14,7 +14,7 @@ const app = new App({
 })
 
 
-app.message('!todo', async ({ message, say }) => {
+app.message(/^\!todo/, async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
   console.log("Message Get")
   fetch('http://localhost:3300/rtm', {
@@ -30,6 +30,10 @@ app.message('!todo', async ({ message, say }) => {
   // await say("My cpu is a neural net processor.  A learning computer");
 });
 
+
+app.message(directMention(), async ({ message, say }) => {
+  say(`Hello ${message.user}, we're talking in ${message.channel}`)
+});
 
 (async () => {
   // Start your app

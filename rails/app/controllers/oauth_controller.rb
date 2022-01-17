@@ -14,19 +14,14 @@ class OauthController < ApplicationController
   end
 
   def basecamp_check
-    token_hash = JSON.parse(File.read('tmp/bc_token'))
-    token = OAuth2::AccessToken.from_hash(client, token_hash)
+    client = BasecampClient.new
     response = token.get('https://launchpad.37signals.com/authorization.json')
     render plain: response.parsed
   end
 
   private
   def client
-    client = OAuth2::Client.new(ENV["BASECAMP_CLIENT_ID"], ENV["BASECAMP_CLIENT_SECRET"], {
-      site: 'https://launchpad.37signals.com',
-      authorize_url: '/authorization/new',
-      token_url: '/authorization/token'
-    })
+    @client ||= BasecampClient.oauth_client
   end
 
   def redirect_uri
