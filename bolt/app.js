@@ -27,12 +27,11 @@ app.message(/^\!todo/, async ({ message, say }) => {
     say(json.reply)
   })
   .catch(err => say("Error: " + err));
-  // await say("My cpu is a neural net processor.  A learning computer");
 });
 
 
 app.message(directMention(), async ({ message, say }) => {
-  say(`Hello ${message.user}, we're talking in ${message.channel}`)
+  say(`Hello ${message.user}, we're talking in ${message.channel}\nMake a todo:   \`!todo do a thing tomorrow\``)
 });
 
 (async () => {

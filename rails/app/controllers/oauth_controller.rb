@@ -15,8 +15,7 @@ class OauthController < ApplicationController
 
   def basecamp_check
     client = BasecampClient.new
-    response = token.get('https://launchpad.37signals.com/authorization.json')
-    render plain: response.parsed
+    render plain: client.authorization
   end
 
   private

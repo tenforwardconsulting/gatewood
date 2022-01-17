@@ -4,7 +4,7 @@ class CommandParser
   end
 
   class Command
-    attr_reader :text, :due_date, :due
+    attr_reader :text, :due_date
     def initialize(input)
       @input = input
       parse_due_date
