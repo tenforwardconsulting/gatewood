@@ -1,0 +1,77 @@
+{
+  "id": 7083636577,
+  "kind": "message_created",
+  "details": {
+    "notified_recipient_ids": []
+  },
+  "created_at": "2022-01-17T18:10:05.028-06:00",
+  "recording": {
+    "id": 4538288296,
+    "status": "active",
+    "visible_to_clients": false,
+    "created_at": "2022-01-17T18:10:05.016-06:00",
+    "updated_at": "2022-01-17T18:10:05.032-06:00",
+    "title": "Gatewood Testing",
+    "inherits_status": true,
+    "type": "Message",
+    "url": "https://3.basecampapi.com/3439565/buckets/8011207/messages/4538288296.json",
+    "app_url": "https://3.basecamp.com/3439565/buckets/8011207/messages/4538288296",
+    "bookmark_url": "https://3.basecampapi.com/3439565/my/bookmarks/BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL1JlY29yZGluZy80NTM4Mjg4Mjk2P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg1yZWFkYWJsZQY7AFRJIg9leHBpcmVzX2F0BjsAVDA=--703934e3e46cf42010a7e4ea01b212bb015603ac.json",
+    "subscription_url": "https://3.basecampapi.com/3439565/buckets/8011207/recordings/4538288296/subscription.json",
+    "parent": {
+      "id": 1126852896,
+      "title": "Message Board",
+      "type": "Message::Board",
+      "url": "https://3.basecampapi.com/3439565/buckets/8011207/message_boards/1126852896.json",
+      "app_url": "https://3.basecamp.com/3439565/buckets/8011207/message_boards/1126852896"
+    },
+    "bucket": {
+      "id": 8011207,
+      "name": "Developers",
+      "type": "Project"
+    },
+    "creator": {
+      "id": 4752027,
+      "attachable_sgid": "BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346",
+      "name": "Brian Samson",
+      "email_address": "bsamson@tenforwardconsulting.com",
+      "personable_type": "User",
+      "title": "President",
+      "bio": "In a meeting",
+      "location": null,
+      "created_at": "2016-06-22T15:54:04.101-05:00",
+      "updated_at": "2021-03-04T15:19:48.268-06:00",
+      "admin": true,
+      "owner": true,
+      "client": false,
+      "time_zone": "America/Chicago",
+      "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/3439565/people/BAhpA5uCSA==--ad541211a34ef50229179056ae5c1bdaf7581db4/avatar-64-x4?v=1",
+      "company": {
+        "id": 412844,
+        "name": "Ten Forward Consulting, Inc."
+      }
+    },
+    "content": "<div>This is a test of the gatewood integration.  Does it work? <br><br></div><h1>Action Items</h1><ul><li><bc-attachment sgid=\"BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346\" content-type=\"application/vnd.basecamp.mention\"></bc-attachment> do something tomorrow</li></ul>"
+  },
+  "creator": {
+    "id": 4752027,
+    "attachable_sgid": "BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346",
+    "name": "Brian Samson",
+    "email_address": "bsamson@tenforwardconsulting.com",
+    "personable_type": "User",
+    "title": "President",
+    "bio": "In a meeting",
+    "location": null,
+    "created_at": "2016-06-22T15:54:04.101-05:00",
+    "updated_at": "2021-03-04T15:19:48.268-06:00",
+    "admin": true,
+    "owner": true,
+    "client": false,
+    "time_zone": "America/Chicago",
+    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/3439565/people/BAhpA5uCSA==--ad541211a34ef50229179056ae5c1bdaf7581db4/avatar-64-x4?v=1",
+    "company": {
+      "id": 412844,
+      "name": "Ten Forward Consulting, Inc."
+    }
+  }
+}

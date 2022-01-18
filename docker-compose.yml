@@ -1,7 +1,7 @@
 version: "3"
 services:
   rails:
-    build: rails/Dockerfile
+    build: rails
     environment:
       RAILS_ENV: production
       PORT: "3300"
@@ -14,13 +14,13 @@ services:
       - redis
       - db
   bolt:
-    build: bolt/Dockerfile
+    build: bolt
     links:
       - rails
     env_file:
       - credentials.env
   redis:
-    image: redis/redis:latest
+    image: redis:latest
   db:
     image: postgres:14
     environment:

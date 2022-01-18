@@ -24,7 +24,7 @@ class SlackRtmController < ApplicationController
   end
 
   def create_todo
-    BasecampClient.new(project: @project).create_todo(@command.text, @command.due_date)
+    BasecampClient.new(@project).create_todo(text: @command.text, due_date: @command.due_date, source: "Slack")
   end
 
   def find_project

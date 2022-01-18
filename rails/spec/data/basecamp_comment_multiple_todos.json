@@ -1,0 +1,76 @@
+{
+  "id": 7083969077,
+  "kind": "comment_created",
+  "details": {
+    "notified_recipient_ids": []
+  },
+  "created_at": "2022-01-17T20:12:17.526-06:00",
+  "recording": {
+    "id": 4538479728,
+    "status": "active",
+    "visible_to_clients": false,
+    "created_at": "2022-01-17T20:12:17.501-06:00",
+    "updated_at": "2022-01-17T20:12:17.529-06:00",
+    "title": "Re: Gatewood Testing",
+    "inherits_status": true,
+    "type": "Comment",
+    "url": "https://3.basecampapi.com/3439565/buckets/8011207/comments/4538479728.json",
+    "app_url": "https://3.basecamp.com/3439565/buckets/8011207/messages/4538288296#__recording_4538479728",
+    "bookmark_url": "https://3.basecampapi.com/3439565/my/bookmarks/BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL1JlY29yZGluZy80NTM4NDc5NzI4P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg1yZWFkYWJsZQY7AFRJIg9leHBpcmVzX2F0BjsAVDA=--00a027ab950d1b7f3785efc962420b7d69e6feac.json",
+    "parent": {
+      "id": 4538288296,
+      "title": "Gatewood Testing",
+      "type": "Message",
+      "url": "https://3.basecampapi.com/3439565/buckets/8011207/messages/4538288296.json",
+      "app_url": "https://3.basecamp.com/3439565/buckets/8011207/messages/4538288296"
+    },
+    "bucket": {
+      "id": 8011207,
+      "name": "Developers",
+      "type": "Project"
+    },
+    "creator": {
+      "id": 4752027,
+      "attachable_sgid": "BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346",
+      "name": "Brian Samson",
+      "email_address": "bsamson@tenforwardconsulting.com",
+      "personable_type": "User",
+      "title": "President",
+      "bio": "In a meeting",
+      "location": null,
+      "created_at": "2016-06-22T15:54:04.101-05:00",
+      "updated_at": "2021-03-04T15:19:48.268-06:00",
+      "admin": true,
+      "owner": true,
+      "client": false,
+      "time_zone": "America/Chicago",
+      "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/3439565/people/BAhpA5uCSA==--ad541211a34ef50229179056ae5c1bdaf7581db4/avatar-64-x4?v=1",
+      "company": {
+        "id": 412844,
+        "name": "Ten Forward Consulting, Inc."
+      }
+    },
+    "content": "<h1>Notes after testing</h1><div>First test was great</div><ul><li>Here is an unrelated list</li><li>I take good notes here</li></ul><div><bc-attachment sgid=\"BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346\" content-type=\"application/vnd.basecamp.mention\"></bc-attachment>  drop a mention here or two <bc-attachment sgid=\"BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80OTAxNTcxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--a77e4862883238f1501bbb5864d3a60b6c800000\" content-type=\"application/vnd.basecamp.mention\"></bc-attachment> <br><br>Now we're getting close to the end of the meeting<br><br></div><h1>Action Items</h1><ul><li><bc-attachment sgid=\"BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346\" content-type=\"application/vnd.basecamp.mention\"></bc-attachment> deploy gatewood thursday</li><li><bc-attachment sgid=\"BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80OTAxNTcxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--a77e4862883238f1501bbb5864d3a60b6c800000\" content-type=\"application/vnd.basecamp.mention\"></bc-attachment> <bc-attachment sgid=\"BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80OTAxNTU4P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--3de7951f485564dd5612ebe5a77bfe549cb07ace\" content-type=\"application/vnd.basecamp.mention\"></bc-attachment> check this thing out tomorrow</li></ul><div><br></div>"
+  },
+  "creator": {
+    "id": 4752027,
+    "attachable_sgid": "BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346",
+    "name": "Brian Samson",
+    "email_address": "bsamson@tenforwardconsulting.com",
+    "personable_type": "User",
+    "title": "President",
+    "bio": "In a meeting",
+    "location": null,
+    "created_at": "2016-06-22T15:54:04.101-05:00",
+    "updated_at": "2021-03-04T15:19:48.268-06:00",
+    "admin": true,
+    "owner": true,
+    "client": false,
+    "time_zone": "America/Chicago",
+    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/3439565/people/BAhpA5uCSA==--ad541211a34ef50229179056ae5c1bdaf7581db4/avatar-64-x4?v=1",
+    "company": {
+      "id": 412844,
+      "name": "Ten Forward Consulting, Inc."
+    }
+  }
+}

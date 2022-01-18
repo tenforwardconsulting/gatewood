@@ -1,0 +1,65 @@
+[
+  {
+    "id": 4752027,
+    "attachable_sgid": "BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80NzUyMDI3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7fc18eba620dd6e51ac7613330d9e302b0ba0346",
+    "name": "Brian Samson",
+    "email_address": "bsamson@tenforwardconsulting.com",
+    "personable_type": "User",
+    "title": "President",
+    "bio": "In a meeting",
+    "location": null,
+    "created_at": "2016-06-22T20:54:04.101Z",
+    "updated_at": "2021-03-04T21:19:48.268Z",
+    "admin": true,
+    "owner": true,
+    "client": false,
+    "time_zone": "America/Chicago",
+    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/3439565/people/BAhpA5uCSA==--ad541211a34ef50229179056ae5c1bdaf7581db4/avatar-64-x4?v=1",
+    "company": {
+      "id": 412844,
+      "name": "Ten Forward Consulting, Inc."
+    }
+  },
+  {
+    "id": 4901571,
+    "attachable_sgid": "BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80OTAxNTcxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--a77e4862883238f1501bbb5864d3a60b6c800000",
+    "name": "Brett Samson",
+    "email_address": "brett@tenforwardconsulting.com",
+    "personable_type": "User",
+    "title": "Developer",
+    "bio": "",
+    "location": null,
+    "created_at": "2016-07-01T16:48:38.283Z",
+    "updated_at": "2021-03-04T20:09:02.125Z",
+    "admin": true,
+    "owner": false,
+    "client": false,
+    "time_zone": "America/Chicago",
+    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/3439565/people/BAhpA8PKSg==--b8add1b46585f18c51cb2ba5617ba382f1dafa03/avatar-64-x4?v=1",
+    "company": {
+      "id": 412844,
+      "name": "Ten Forward Consulting, Inc."
+    }
+  },
+  {
+    "id": 4901558,
+    "attachable_sgid": "BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi80OTAxNTU4P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--3de7951f485564dd5612ebe5a77bfe549cb07ace",
+    "name": "Hilary Stohs-Krause",
+    "email_address": "hilarysk@tenforwardconsulting.com",
+    "personable_type": "User",
+    "title": "Developer",
+    "bio": "",
+    "location": null,
+    "created_at": "2016-07-01T16:47:08.889Z",
+    "updated_at": "2021-03-04T19:22:39.216Z",
+    "admin": true,
+    "owner": false,
+    "client": false,
+    "time_zone": "America/Chicago",
+    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/3439565/people/BAhpA7bKSg==--cfd604b083700bb51e3a324155885f67f88d396b/avatar-64-x4?v=1",
+    "company": {
+      "id": 412844,
+      "name": "Ten Forward Consulting, Inc."
+    }
+  }
+]

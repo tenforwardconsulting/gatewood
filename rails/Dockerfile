@@ -1,8 +1,16 @@
 # Dockerfile! Microservices!
-FROM ruby/3.0.3
-COPY . /app
-RUN gem install bundler -v 2.3.4
+FROM ruby:3.0.3
+
 WORKDIR /app
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler -v 2.3.4
+ENV RAILS_ENV production
 RUN bundle install
 
-CMD bundle exec puma -C config/puma.rb
+COPY . .
+
+RUN rails assets:precompile
+RUN rails tailwindcss:build
+
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT [ "/app/entrypoint.sh" ]

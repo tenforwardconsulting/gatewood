@@ -1,6 +1,5 @@
 class BasecampClient
   include HTTParty
-  debug_output $stdout
   base_uri "https://3.basecampapi.com/"
   attr_accessor :project
 
@@ -12,25 +11,29 @@ class BasecampClient
     })
   end
 
-  def initialize(project: nil)
+  def initialize(project)
     @project = project
     @headers = {
         "Authorization" => "Bearer #{token.token}",
         "User-Agent" => "Grandma Gatewood (brian@tenforwardconsulting.com)",
-        "Content-Type" => "application/json"
+        "Content-Type" => "application/json; charset=utf-8"
     }
     self.class.base_uri "https://3.basecampapi.com/#{ENV["BASECAMP_TEAM"]}/"
   end
 
-  def list_projects
-    response = self.class.get("/projects.json", headers: @headers)
+  def projects
+    @projects_cache ||= self.class.get("/projects.json", headers: @headers)
   end
 
-  def create_todo(name, due_date)
+  def people
+    @people_cache ||= self.class.get("/projects/#{project.basecamp_bucket_id}/people.json", headers: @headers)
+  end
+
+  def create_todo(text:, due_date:, assigned_to: [], source: "unknown")
     endpoint = "/buckets/#{@project.basecamp_bucket_id}/todolists/#{@project.basecamp_todolist_id}/todos.json"
     body = {
-      "content": name,
-      "description": "<div><em>Created by Gatewood</em></div>",
+      "content": text,
+      "description": "<div><em>Created by Gatewood (via #{source})</em></div>",
       "due_on": due_date.strftime("%Y-%m-%d")
     }.to_json
     self.class.post(endpoint, headers: @headers, body: body)
