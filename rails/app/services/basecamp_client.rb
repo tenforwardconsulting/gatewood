@@ -32,9 +32,11 @@ class BasecampClient
   def create_todo(text:, due_date:, assigned_to: [], source: "unknown")
     endpoint = "/buckets/#{@project.basecamp_bucket_id}/todolists/#{@project.basecamp_todolist_id}/todos.json"
     body = {
-      "content": text,
-      "description": "<div><em>Created by Gatewood (via #{source})</em></div>",
-      "due_on": due_date.strftime("%Y-%m-%d")
+      content: text,
+      description: "<div><em>Created by Gatewood (via #{source})</em></div>",
+      due_on: due_date.strftime("%Y-%m-%d"),
+      assignee_ids:  assigned_to,
+      notify: true
     }.to_json
     self.class.post(endpoint, headers: @headers, body: body)
   end

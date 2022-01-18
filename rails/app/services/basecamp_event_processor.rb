@@ -20,7 +20,7 @@ class BasecampEventProcessor
         text: cmd.text,
         due_date: cmd.due_date,
         assigned_to: assigned_to,
-        source: @event["recording"]["app_url"]
+        source: "<a href=\"#{@event["recording"]["app_url"]}\">#{@event["recording"]["title"]}</a>"
       )
     end
   end
