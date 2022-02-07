@@ -1,6 +1,7 @@
 class SlackRtmController < ApplicationController
   before_action :authenticate
   skip_before_action :verify_authenticity_token
+  wrap_parameters false
 
 
   def receive
@@ -23,8 +24,14 @@ class SlackRtmController < ApplicationController
     pp ex
   end
 
+  # TODO need to get the real slack team
   def create_todo
-    BasecampClient.new(project: @project).create_todo(@command.text, @command.due_date)
+    ts = params[:ts].gsub(".","")
+    BasecampClient.new(@project).create_todo(
+      text: @command.text,
+      due_date: @command.due_date,
+      source: "<a href=\"https://#{ENV["SLACK_TEAM"]}.slack.com/archives/#{params[:channel]}/p#{ts}\">Slack</a>"
+    )
   end
 
   def find_project

@@ -1,0 +1,30 @@
+version: "3"
+services:
+  rails:
+    build: rails
+    environment:
+      RAILS_ENV: production
+      PORT: "3300"
+      REDIS_URL: "redis://redis:6379/1"
+      GATEWOOD_DATABASE_PASSWORD: gatewood
+      GATEWOOD_DATABASE_HOST: db
+    ports:
+      - "3300:3300"
+    links:
+      - redis
+      - db
+  bolt:
+    build: bolt
+    links:
+      - rails
+    env_file:
+      - credentials.env
+  redis:
+    image: redis:latest
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: gatewood
+      POSTGRES_USER: gatewood
+      POSTGRES_DB: gatewood_production
+

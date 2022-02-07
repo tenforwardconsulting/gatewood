@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/auth/basecamp/check", to: "oauth#basecamp_check"
 
   match "/rtm", to: "slack_rtm#receive", via: [:get, :post]
+
+  post "/webhooks/basecamp", to: "basecamp_webhooks#event"
 end

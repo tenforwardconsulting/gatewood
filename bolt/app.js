@@ -17,7 +17,7 @@ const app = new App({
 app.message(/^\!todo/, async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
   console.log("Message Get")
-  fetch('http://localhost:3300/rtm', {
+  fetch(process.env.RAILS_RTM_URL, {
     method: 'POST',
     body: JSON.stringify(message),
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json'}
