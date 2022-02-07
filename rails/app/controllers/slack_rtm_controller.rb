@@ -3,7 +3,6 @@ class SlackRtmController < ApplicationController
   skip_before_action :verify_authenticity_token
   wrap_parameters false
 
-
   def receive
     if params[:text] =~ /.*\!todo\s+(.*)?/
       @command = CommandParser.parse($1)
@@ -24,7 +23,8 @@ class SlackRtmController < ApplicationController
     pp ex
   end
 
-  # TODO need to get the real slack team
+  # TODO need to get the real slack team in the ENV
+  # Need to lookup people and assign
   def create_todo
     ts = params[:ts].gsub(".","")
     BasecampClient.new(@project).create_todo(
