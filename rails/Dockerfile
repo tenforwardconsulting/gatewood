@@ -9,7 +9,7 @@ RUN bundle install
 
 COPY . .
 
-RUN rails assets:precompile
+RUN SECRET_KEY_BASE=1 rails assets:precompile
 RUN rails tailwindcss:build
 
 RUN chmod +x /app/entrypoint.sh

@@ -24,6 +24,6 @@ class OauthController < ApplicationController
   end
 
   def redirect_uri
-    "https://gatewood.ngrok.io/auth/basecamp/callback"
+    "#{ENV["GATEWOOD_HOST"]}/auth/basecamp/callback"
   end
 end
