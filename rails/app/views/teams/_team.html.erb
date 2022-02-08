@@ -1,0 +1,32 @@
+<div id="<%= dom_id team %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= team.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Service:</strong>
+    <%= team.service %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Service:</strong>
+    <%= team.service_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Oauth client:</strong>
+    <%= team.oauth_client_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Oauth client secret:</strong>
+    <%= team.oauth_client_secret %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this team", team, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this team', edit_team_path(team), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

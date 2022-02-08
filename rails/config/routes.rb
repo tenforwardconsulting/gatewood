@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :teams
   resources :projects
+  resources :users, only: :create
 
   root "home#home"
 
