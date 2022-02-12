@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :projects
   resources :users, only: :create
 
-  root "home#home"
 
+
+  get "/dashboard", to: "home#dashboard"
   get "/auth/basecamp", to: "oauth#basecamp"
   get "/auth/basecamp/callback", to: "oauth#basecamp_callback"
   get "/auth/basecamp/check", to: "oauth#basecamp_check"
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
   match "/rtm", to: "slack_rtm#receive", via: [:get, :post]
 
   post "/webhooks/basecamp", to: "basecamp_webhooks#event"
+
+  root "home#home"
 end

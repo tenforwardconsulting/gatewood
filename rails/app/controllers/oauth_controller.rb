@@ -1,5 +1,6 @@
 class OauthController < ApplicationController
   def basecamp
+    puts "****************#{redirect_uri}"
     auth_url = client.auth_code.authorize_url(redirect_uri: redirect_uri, type: "web_server")
     redirect_to auth_url, allow_other_host: true
   end

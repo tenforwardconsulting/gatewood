@@ -25,7 +25,13 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to team_url(@team), notice: "Team was successfully created." }
+        format.html {
+          if @team.basecamp?
+            redirect_to auth_basecamp_path(team: @team), status: :see_other
+          else
+            redirect_to teams_path, notice: "Success!"
+          end
+        }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +71,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :service, :service_id, :oauth_client_id, :oauth_client_secret)
+      params.require(:team).permit(:name, :service)
     end
 end
