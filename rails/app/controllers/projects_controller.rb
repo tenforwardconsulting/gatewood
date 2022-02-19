@@ -65,6 +65,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :basecamp_bucket_id, :basecamp_todolist_id, :slack_channel_id)
+      params.require(:project).permit(:name, :basecamp_bucket_id, :basecamp_todolist_id, :slack_channel_id, :basecamp_team_id, :slack_team_id)
     end
 end

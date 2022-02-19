@@ -24,10 +24,19 @@ class SlackRtmController < ApplicationController
     pp ex
   end
 
+  def team_configs
+    team_configs = Team.slack.map do |team|
+      {
+        bot_token: team.oauth_token["access_token"]
+      }
+    end
+    render json: {configs: team_configs}
+  end
+
   # TODO need to get the real slack team
   def create_todo
     ts = params[:ts].gsub(".","")
-    BasecampClient.new(@project).create_todo(
+    BasecampClient.new(@project.basecamp_team, @project).create_todo(
       text: @command.text,
       due_date: @command.due_date,
       source: "<a href=\"https://#{ENV["SLACK_TEAM"]}.slack.com/archives/#{params[:channel]}/p#{ts}\">Slack</a>"

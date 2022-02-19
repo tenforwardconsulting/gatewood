@@ -17,8 +17,8 @@
   </div>
 
   <div class="my-5">
-    <%= label_tag :basecamp_team_id, "Basecamp Team" %>
-    <%= select_tag :basecamp_team_id, options_from_collection_for_select(Team.basecamp, :id, :name), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :basecamp_team_id, "Basecamp Team" %>
+    <%= form.select :basecamp_team_id, options_from_collection_for_select(Team.basecamp, :id, :name), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
   <%= link_to "Create a new team", new_team_path(service: "basecamp") %>
 
@@ -33,8 +33,8 @@
   </div>
 
   <div class="my-5">
-    <%= label_tag :basecamp_team_id, "Slack Team" %>
-    <%= select_tag :basecamp_team_id, options_from_collection_for_select(Team.slack, :name, :id), include_blank: "No Slack Connection", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :slack_team_id, "Slack Team" %>
+    <%= form.select :slack_team_id, options_from_collection_for_select(Team.slack, :id, :name), include_blank: "No Slack Connection", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
   <%= link_to "Create a new team", new_team_path(service: "slack") %>
 

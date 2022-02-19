@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
 
 
-  match "/rtm", to: "slack_rtm#receive", via: [:get, :post]
+  post "/rtm", to: "slack_rtm#receive"
+  get "/rtm/config", to: "slack_rtm#team_configs"
 
   post "/webhooks/basecamp", to: "basecamp#webhook"
 
