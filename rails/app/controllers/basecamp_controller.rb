@@ -1,16 +1,24 @@
-class OauthController < ApplicationController
+# https://github.com/basecamp/bc3-api/blob/master/sections/webhooks.md#webhooks
+class BasecampController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
-  def basecamp
-    puts "****************#{redirect_uri}"
+  def webhook
+    pp params
+    BasecampEventProcessor.new(params).process
+
+    head :ok
+  end
+
+  def oauth_redirect
     team = Team.find(params[:team])
     session["basecamp_oauth_team_id"] = team.id
-    auth_url = client.auth_code.authorize_url(redirect_uri: redirect_uri, type: "web_server")
+    auth_url = oauth_client.auth_code.authorize_url(redirect_uri: redirect_uri, type: "web_server")
     redirect_to auth_url, allow_other_host: true
   end
 
-  def basecamp_callback
-    token = client.auth_code.get_token(params[:code], redirect_uri: redirect_uri, type: "web_server")
+  def oauth_callback
+    token = oauth_client.auth_code.get_token(params[:code], redirect_uri: redirect_uri, type: "web_server")
     response = token.get('https://launchpad.37signals.com/authorization.json')
     authorization = JSON.parse(response.body)
 
@@ -24,20 +32,18 @@ class OauthController < ApplicationController
     redirect_to edit_team_path(team), alert: ex.message
   end
 
-  def basecamp_check
+  def oauth_check
     team = Team.find(params[:team])
-    client = BasecampClient.new(team)
-    render plain: client.authorization
+    render plain: BasecampClient.new(team).authorization
   end
-
 
   private
 
-  def client
-    @client ||= BasecampClient.oauth_client
-  end
-
   def redirect_uri
     "#{ENV["GATEWOOD_HOST"]}/auth/basecamp/callback"
+  end
+
+  def oauth_client
+    @client ||= BasecampClient.oauth_client
   end
 end

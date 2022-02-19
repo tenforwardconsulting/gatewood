@@ -7,13 +7,19 @@ Rails.application.routes.draw do
 
 
   get "/dashboard", to: "home#dashboard"
-  get "/auth/basecamp", to: "oauth#basecamp", as: "auth_basecamp"
-  get "/auth/basecamp/callback", to: "oauth#basecamp_callback"
-  get "/auth/basecamp/check", to: "oauth#basecamp_check"
+  get "/auth/basecamp", to: "basecamp#oauth_redirect", as: "auth_basecamp"
+  get "/auth/basecamp/callback", to: "basecamp#oauth_callback"
+  get "/auth/basecamp/check", to: "basecamp#oauth_check"
+
+  get "/auth/slack", to: "slack#oauth_redirect", as: "auth_slack"
+  get "/auth/slack/callback", to: "slack#oauth_callback"
+  get "/auth/slack/check", to: "slack#oauth_check"
+
+
 
   match "/rtm", to: "slack_rtm#receive", via: [:get, :post]
 
-  post "/webhooks/basecamp", to: "basecamp_webhooks#event"
+  post "/webhooks/basecamp", to: "basecamp#webhook"
 
   root "home#home"
 end

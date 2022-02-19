@@ -25,20 +25,13 @@ Once you have the docker-compose, you need to set up all the API keys and integr
 
 All configuration is done via environment variables. Configuration is stored in the main .env file (for production) and in bolt/.env and rails/config/application.yml during development.
 
-    # Shared configuration
-    GATEWOOD_HOST="https://gatewood.example.com"
+For configuration
 
-    # Rails / Basecamp secrets
-    BASECAMP_CLIENT_ID: a463ab66c4af430b1e481f8cff5bd5a5bca3b96a
-    BASECAMP_CLIENT_SECRET: 872e54b6533b57e480d4dbc33f67b91e40dbb26c
-    BASECAMP_TEAM: "3439565"
-    SLACK_TEAM: "tenforward"
 
-    # Bolt / Slack secrets
-    SLACK_SIGNING_SECRET=
-    SLACK_BOT_TOKEN=
-    SLACK_APP_TOKEN=
-    SLACK_TEAM=
 ## Development
 
-install `foreman` and run `forman start` which uses the `Procfile` to launch both the rails app and the js slack connector. Then you can edit the rails and js apps individually.
+install `foreman` and run `forman start` which uses the `Procfile` to launch both the rails app and the js slack connector. Then you can edit the rails and js apps individually. This will set all the local development environment variables to whatever is in the .env file in the project root.
+
+If you want to run these services outside of foreman, you will need to create or symlink the .env file into rails/ and bolt/ respectively.
+
+Since local testing relies heavily on oauth and other connected services, I use ngrok to develop and set GATEWOOD_HOST appropriately.

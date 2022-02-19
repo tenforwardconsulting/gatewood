@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
           if @team.basecamp?
             redirect_to auth_basecamp_path(team: @team), status: :see_other
           else
-            redirect_to teams_path, notice: "Success!"
+            redirect_to dashboard_path, notice: "Success!"
           end
         }
         format.json { render :show, status: :created, location: @team }
