@@ -70,4 +70,6 @@ Rails.application.configure do
 
   config.hosts << "gatewood.ngrok.io"
   config.time_zone = "America/Chicago"
+
+  config.web_console.permissions = "2600:6c44:393f:a608:15e3:292f:d2a5:b064/64"
 end

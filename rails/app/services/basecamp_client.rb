@@ -18,7 +18,7 @@ class BasecampClient
         "User-Agent" => "Grandma Gatewood (brian@tenforwardconsulting.com)",
         "Content-Type" => "application/json; charset=utf-8"
     }
-    self.class.base_uri "https://3.basecampapi.com/#{ENV["BASECAMP_TEAM"]}/"
+    self.class.base_uri "https://3.basecampapi.com/#{project.basecamp_team.service_id}/"
   end
 
   def projects
@@ -43,7 +43,7 @@ class BasecampClient
 
   def token
     @token ||= begin
-      token_hash = JSON.parse(File.read('tmp/bc_token'))
+      token_hash = @project.basecamp_team.oauth_token
       token = OAuth2::AccessToken.from_hash(client, token_hash)
     end
   end

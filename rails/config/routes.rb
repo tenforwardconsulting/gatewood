@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   get "/dashboard", to: "home#dashboard"
-  get "/auth/basecamp", to: "oauth#basecamp"
+  get "/auth/basecamp", to: "oauth#basecamp", as: "auth_basecamp"
   get "/auth/basecamp/callback", to: "oauth#basecamp_callback"
   get "/auth/basecamp/check", to: "oauth#basecamp_check"
 
