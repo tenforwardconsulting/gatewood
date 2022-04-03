@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: gatewood
-  username: gatewood
+  database: <% ENV["GATEWOOD_DATABASE_NAME"] %>
+  username: <% ENV["GATEWOOD_DATABASE_USER"] %>
   host: <%= ENV["GATEWOOD_DATABASE_HOST"] %>
   password: <%= ENV["GATEWOOD_DATABASE_PASSWORD"] %>
