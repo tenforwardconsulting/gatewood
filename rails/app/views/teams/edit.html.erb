@@ -1,0 +1,16 @@
+<div class="mx-auto md:w-2/3 w-full bg-white p-6">
+  <h1 class="font-bold text-4xl">Editing team</h1>
+
+  <%= render "form", team: @team %>
+
+  <% if @team.basecamp? %>
+    <%= link_to 'Re-authenticate', auth_basecamp_path(team: @team), class: "rounded-lg py-3 ml-2 px-5 bg-green-200 inline-block font-medium" %>
+  <% end %>
+  <% if @team.slack? %>
+    <%= link_to 'Re-authenticate', auth_slack_path(team: @team), class: "rounded-lg py-3 ml-2 px-5 bg-green-200 inline-block font-medium" %>
+  <% end %>
+  <div class="inline-block ml-2">
+    <%= button_to 'Destroy this team', team_path(@team), method: :delete, data: {"turbo_confirm": "Are you sure?"}, class: "mt-2 rounded-lg py-3 px-5 bg-red-300 font-medium" %>
+  </div>
+  <%= link_to "Back", dashboard_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>

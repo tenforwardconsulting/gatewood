@@ -11,14 +11,16 @@ class BasecampClient
     })
   end
 
-  def initialize(project)
+  def initialize(team, project=nil)
+    raise "Please use a basecamp team" unless team.basecamp?
+    @team = team
     @project = project
     @headers = {
         "Authorization" => "Bearer #{token.token}",
         "User-Agent" => "Grandma Gatewood (brian@tenforwardconsulting.com)",
         "Content-Type" => "application/json; charset=utf-8"
     }
-    self.class.base_uri "https://3.basecampapi.com/#{ENV["BASECAMP_TEAM"]}/"
+    self.class.base_uri "https://3.basecampapi.com/#{@team.service_id}/"
   end
 
   def projects
@@ -26,10 +28,12 @@ class BasecampClient
   end
 
   def people
-    @people_cache ||= self.class.get("/projects/#{project.basecamp_bucket_id}/people.json", headers: @headers)
+    raise "Please set basecamp_client.project" if @project.nil?
+    @people_cache ||= self.class.get("/projects/#{@project.basecamp_bucket_id}/people.json", headers: @headers)
   end
 
   def create_todo(text:, due_date:, assigned_to: [], source: "unknown")
+    raise "Please set basecamp_client.project" if @project.nil?
     endpoint = "/buckets/#{@project.basecamp_bucket_id}/todolists/#{@project.basecamp_todolist_id}/todos.json"
     body = {
       content: text,
@@ -43,7 +47,7 @@ class BasecampClient
 
   def token
     @token ||= begin
-      token_hash = JSON.parse(File.read('tmp/bc_token'))
+      token_hash = @team.oauth_token
       token = OAuth2::AccessToken.from_hash(client, token_hash)
     end
   end
