@@ -3,7 +3,6 @@ class SlackRtmController < ApplicationController
   skip_before_action :verify_authenticity_token
   wrap_parameters false
 
-
   def receive
     if params[:text] =~ /.*\!todo\s+(.*)?/
       @command = CommandParser.parse($1)

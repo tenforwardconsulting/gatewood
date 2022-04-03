@@ -1,16 +1,19 @@
 version: "3"
 services:
   rails:
+    # Development
     build: rails
+    # Production
+    # image: ghcr.io/tenforwardconsulting/gatewood-rails:latest
     environment:
-      - REDIS_URL: "redis://redis:6379/1"
-      - PORT: "3000"
-      - GATEWOOD_DATABASE_PASSWORD: gatewood
-      - GATEWOOD_DATABASE_HOST: db
+      - REDIS_URL=redis://redis:6379/1
+      - PORT=3000
+      - GATEWOOD_DATABASE_PASSWORD=gatewood
+      - GATEWOOD_DATABASE_HOST=db
       # configure in .env
+      - SECRET_KEY_BASE
       - BASECAMP_CLIENT_ID
       - BASECAMP_CLIENT_SECRET
-      - BASECAMP_TEAM
       - SLACK_TEAM
       - GATEWOOD_HOST
     ports:
@@ -19,7 +22,10 @@ services:
       - redis
       - db
   bolt:
+    # Development
     build: bolt
+    # Production
+    # image: ghcr.io/tenforwardconsulting/gatewood-bolt:latest
     links:
       - rails
     environment:
@@ -35,9 +41,9 @@ services:
     environment:
       POSTGRES_PASSWORD: gatewood
       POSTGRES_USER: gatewood
-      POSTGRES_DB: gatewood_production
+      POSTGRES_DB: gatewood
     volumes:
-      ./pg-data:/var/lib/postgresql/data
+      - ./pg-data:/var/lib/postgresql/data
   caddy:
     image: caddy:2-alpine
     restart: unless-stopped
