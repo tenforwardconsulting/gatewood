@@ -45,7 +45,7 @@ gem "bootsnap", require: false
 
 gem "httparty"
 gem "oauth2"
-gem "devise", "~>4.8"
+gem 'devise', git: 'https://github.com/ghiculescu/devise.git', branch: "error-code-422"
 
 # Maybe once these work right use them, until then it runs through javascript!
 # gem "slack-ruby-client", github: "slack-ruby/slack-ruby-client"
