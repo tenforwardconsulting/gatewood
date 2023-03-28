@@ -12,10 +12,6 @@ jobs:
     steps:
       - name: Log in to registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      - run: docker pull ghcr.io/tenforwardconsulting/gatewood-bolt:${{ github.sha }}
-      - run: docker tag ghcr.io/tenforwardconsulting/gatewood-bolt:${{ github.sha }} ghcr.io/tenforwardconsulting/gatewood-bolt:${{ github.event.release.tag_name }}
-      - run: docker tag ghcr.io/tenforwardconsulting/gatewood-bolt:${{ github.sha }} ghcr.io/tenforwardconsulting/gatewood-bolt:latest
-      - run: docker push --all-tags ghcr.io/tenforwardconsulting/gatewood-bolt
       - run: docker pull ghcr.io/tenforwardconsulting/gatewood-rails:${{ github.sha }}
       - run: docker tag ghcr.io/tenforwardconsulting/gatewood-rails:${{ github.sha }} ghcr.io/tenforwardconsulting/gatewood-rails:${{ github.event.release.tag_name }}
       - run: docker tag ghcr.io/tenforwardconsulting/gatewood-rails:${{ github.sha }} ghcr.io/tenforwardconsulting/gatewood-rails:latest

@@ -1,9 +1,8 @@
-# Dockerfile! Microservices!
-FROM ruby:3.0.3
+FROM ruby:3.2.0
 
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler -v 2.3.4
+RUN gem install bundler -v 2.4.10
 ENV RAILS_ENV production
 RUN bundle install
 
