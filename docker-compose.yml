@@ -7,7 +7,7 @@ services:
     # image: ghcr.io/tenforwardconsulting/gatewood-rails:${TAG}
     environment:
       - REDIS_URL=redis://redis:6379/1
-      - PORT=3000
+      - PORT=3700
       - GATEWOOD_DATABASE_HOST=db
       - RAILS_SERVE_STATIC_ASSETS=1 # TODO configure caddy to do this?
       # configure in .env
@@ -25,6 +25,7 @@ services:
     links:
       - redis
       - db
+
   bolt:
     # Development
     build: bolt
@@ -52,7 +53,7 @@ services:
   caddy:
     image: caddy:2-alpine
     restart: unless-stopped
-    command: "caddy reverse-proxy --from ${GATEWOOD_HOST} --to http://rails:3000"
+    command: "caddy reverse-proxy --from ${GATEWOOD_HOST} --to http://rails:3700"
     ports:
       - "80:80"
       - "443:443"

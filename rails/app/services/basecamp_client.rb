@@ -3,6 +3,8 @@ class BasecampClient
   base_uri "https://3.basecampapi.com/"
   attr_accessor :project
 
+  attr_reader :team
+
   def self.oauth_client
     OAuth2::Client.new(ENV["BASECAMP_CLIENT_ID"], ENV["BASECAMP_CLIENT_SECRET"], {
       site: 'https://launchpad.37signals.com',
@@ -24,7 +26,21 @@ class BasecampClient
   end
 
   def projects
-    @projects_cache ||= self.class.get("/projects.json", headers: @headers)
+    @projects_cache ||= JSON.parse(self.class.get("/projects.json", headers: @headers).body)
+  end
+
+  def project
+    raise "Please set basecamp_client.project" if @project.nil?
+    JSON.parse(self.class.get("/projects/#{@project.basecamp_bucket_id}.json", headers: @headers).body)
+  end
+
+  def todolists
+    raise "Please set basecamp_client.project" if @project.nil?
+    @todolists_cache ||= JSON.parse(self.class.get("/buckets/#{@project.basecamp_bucket_id}/todolists.json", headers: @headers).body)
+  end
+
+  def todolist(todolist_id)
+    JSON.parse(self.class.get("/buckets/#{@project.basecamp_bucket_id}/todolists/#{todolist_id}.json", headers: @headers).body)
   end
 
   def people
@@ -49,6 +65,14 @@ class BasecampClient
     @token ||= begin
       token_hash = @team.oauth_token
       token = OAuth2::AccessToken.from_hash(client, token_hash)
+      if token.expired?
+        new_token = token.refresh!({type: "refresh"})
+        @team.oauth_token = new_token.to_hash
+        @team.save!
+        new_token
+      else
+        token
+      end
     end
   end
 

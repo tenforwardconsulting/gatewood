@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="w-full shadow p-4">
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Projects</h1>
     <%= link_to 'New project', new_project_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
@@ -8,6 +8,12 @@
     Projects are the glue that hold together the connections between Basecamp and Slack. You will need a new project for each basecamp project
   </div>
   <div id="projects" class="min-w-full">
-    <%= render @projects %>
+    <% @projects.each do |project| %>
+      <%= link_to project do %>
+        <div class="<%= cycle("bg-slate-50", "") %> p-3">
+          <%= project.name %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

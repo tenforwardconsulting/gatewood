@@ -29,4 +29,5 @@ class Team < ApplicationRecord
   def slack?
     service == Service::SLACK
   end
+
 end

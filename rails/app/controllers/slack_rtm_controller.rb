@@ -4,7 +4,7 @@ class SlackRtmController < ApplicationController
   wrap_parameters false
 
   def receive
-    if params[:text] =~ /.*\!todo\s+(.*)?/
+    if params[:text] =~ /.*\#{ENV["GATEWOOD_WAKE"]}\s+(.*)?/
       @command = CommandParser.parse($1)
       raise "Oww sheesh, I don't know what Basecamp to use in this channel!" unless find_project
       raise "Oh no, you know it won't get done without a due date!" if @command.due_date.nil?

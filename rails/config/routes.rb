@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/auth/slack/callback", to: "slack#oauth_callback"
   get "/auth/slack/check", to: "slack#oauth_check"
 
+  post "/slack/events", to: "slack_events#event"
 
 
   post "/rtm", to: "slack_rtm#receive"

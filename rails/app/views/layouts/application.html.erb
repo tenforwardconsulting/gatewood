@@ -12,12 +12,15 @@
   </head>
 
   <body class="antialiased font-sans bg-gray-100 pb-10">
+    <% unless Rails.env.production? %>
+      <div class="bg-amber-100 text-center text-back p-3"><%= Rails.env.titlecase %> Environment</div>
+    <% end %>
     <main class="container mx-auto mt-28 px-5">
       <%= turbo_frame_tag :flash do %>
         <%= render "layouts/flash" %>
       <% end %>
 
-      <%= yield %>
+      <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
   </body>
 </html>
