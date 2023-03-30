@@ -1,24 +1,12 @@
-# README
+# Gatewood
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## Basecamp
+You need an app for basecamp, which is not really linked anywhere but you can do them here:
 
-* System dependencies
+https://launchpad.37signals.com/integrations
 
-* Configuration
+## Slack
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Get to your slack apps here: https://api.slack.com/apps/

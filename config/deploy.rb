@@ -36,3 +36,17 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "config/puma
 # set :keep_releases, 5
 
 set :ssh_options, verify_host_key: :always, forward_agent: true
+
+after "deploy:published", "deploy:restart"
+
+namespace :deploy do
+  desc 'Restart application'
+  task :restart do
+    on roles(:web), in: :sequence, wait: 5 do
+      execute :sudo, 'systemctl restart puma'
+    end
+    # on roles(:app), in: :sequence, wait: 5 do
+    #   execute :sudo, 'systemctl restart sidekiq'
+    # end
+  end
+end

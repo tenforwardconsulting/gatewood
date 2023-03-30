@@ -18,12 +18,12 @@ class SlackController < ApplicationController
 
   def oauth_callback
     team = Team.find(session["slack_oauth_team_id"])
-    token = oauth_client.auth_code.get_token(params[:code])
+    token = oauth_client.auth_code.get_token(params[:code], redirect_uri: redirect_uri)
     team.oauth_token = token.to_hash
     team.service_id = token.params["team"]["id"]
     team.save!
 
-    redirect_to edit_team_path(team), notice: "Connected to Basecampe team #{team.service_id}"
+    redirect_to edit_team_path(team), notice: "Connected to Slack team #{team.service_id}"
   rescue OAuth2::Error => ex
     redirect_to edit_team_path(team), alert: ex.message
   end
@@ -33,7 +33,6 @@ class SlackController < ApplicationController
     client = BasecampClient.new(team)
     render plain: client.authorization
   end
-
 
   private
 
