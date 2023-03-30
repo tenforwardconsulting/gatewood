@@ -1,0 +1,16 @@
+---
+  - hosts: production
+    become: yes
+
+    vars_files:
+      - ./secrets/production.yml
+
+    roles:
+      - common
+      - ruby-common
+      - rails
+      - puma
+      - letsencrypt
+      - nginx
+      - postgresql
+      - logrotate

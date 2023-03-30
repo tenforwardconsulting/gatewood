@@ -1,0 +1,28 @@
+# Conventions and defaults are defined here
+project_name: gatewood
+database_host: localhost
+use_sudo: true
+
+# ruby-common
+# pull the checksum/url from https://www.ruby-lang.org/en/downloads/
+ruby_version: ruby-3.2.1
+ruby_checksum: sha256:13d67901660ee3217dbd9dd56059346bd4212ce64a69c306ef52df64935f8dbd
+ruby_download_location: https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.1.tar.gz
+bundler_version: 2.4.10
+
+# Other stuff
+letsencrypt_email: alerts@tenforwardconsulting.com
+nodejs_version:  # 16.x
+ssl_enabled: true
+postgresql_version: # 14
+
+logrotate_scripts:
+  - name: rails
+    path: "/u/apps/{{project_name}}/shared/log/{{rails_env}}.log"
+    options:
+      - weekly
+      - size 100M
+      - missingok
+      - compress
+      - delaycompress
+      - copytruncate
