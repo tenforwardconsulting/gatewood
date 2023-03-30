@@ -123,10 +123,6 @@ GEM
       reline (>= 0.2.7)
     diff-lcs (1.5.0)
     digest (3.1.0)
-    dotenv (2.7.6)
-    dotenv-rails (2.7.6)
-      dotenv (= 2.7.6)
-      railties (>= 3.2)
     erubi (1.10.0)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
@@ -348,7 +344,7 @@ DEPENDENCIES
   capistrano-rails
   debug
   devise!
-  dotenv-rails
+  figaro
   guard-rspec
   httparty
   importmap-rails

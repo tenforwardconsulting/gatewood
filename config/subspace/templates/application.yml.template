@@ -1,17 +1,20 @@
-# This file defines the environment variables available to the application at runtime
-# We use the figaro gem to load environment variables from application.yml.
+SECRET_KEY_BASE={{SECRET_KEY_BASE}}
+SLACK_SIGNING_SECRET={{SLACK_SIGNING_SECRET}}
+SLACK_BOT_TOKEN={{SLACK_BOT_TOKEN}}
+SLACK_API_TOKEN={{SLACK_API_TOKEN}}
 
-# These environment variables are available to all environments, and can be secret or not:
+SLACK_CLIENT_ID={{SLACK_CLIENT_ID}}
+SLACK_CLIENT_SECRET={{SLACK_CLIENT_SECRET}}
 
-# These are secret and can be changed per environment easily by using subspace vars <env> --edit
+BASECAMP_CLIENT_ID={{BASECAMP_CLIENT_ID}}
+BASECAMP_CLIENT_SECRET={{BASECAMP_CLIENT_SECRET}}
 
-# These are not secret, and have the same value for all environments
-
+BASECAMP_TEAM="3439565"
+SLACK_TEAM="tenforward"
 
 # These variable are not secret, but have different, static values for all environments
 development:
-  # INSECURE_VARIABLE: "this isn't secret"
-  # AWS_BUCKET: my-app-development
+  GATEWOOD_HOST="https://gatewood.ngrok.io"
 
 production:
-  # NADA
+  GATEWOOD_HOST="https://gatewood.10fw.net"
